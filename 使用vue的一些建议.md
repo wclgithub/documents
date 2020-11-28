@@ -22,3 +22,7 @@ splice() 方法向/从数组中添加/删除项目，然后返回被删除的项
 array.splice(startIndex,num,newArray)
 
 
+4. 路由跳转传值： 建议使用 query 传参  如果是对象用 JSON.stringify 处理一下  变成字符串  这样刷新不会变成[object,object]的形式
+
+        this.$router.push({path:'edit',query:{data:JSON.stringify(row)}})
+

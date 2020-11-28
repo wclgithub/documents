@@ -35,3 +35,13 @@
             })
         },
  
+2. 获取城市首拼  ： js-pinyin
+    
+        npm install js-pinyin
+        
+        import pinyin  from 'js-pinyin'
+    
+        console.log(pinyin.getFullChars('管理员')) //GuanLiYuan;
+        console.log(pinyin.getCamelChars('管理员')) //GLY;
+        console.log(pinyin.getCamelChars('1234')) //1234;
+        console.log(pinyin.getCamelChars('杨'))  //Y;
