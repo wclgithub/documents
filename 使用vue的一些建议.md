@@ -25,4 +25,39 @@ array.splice(startIndex,num,newArray)
 4. 路由跳转传值： 建议使用 query 传参  如果是对象用 JSON.stringify 处理一下  变成字符串  这样刷新不会变成[object,object]的形式
 
         this.$router.push({path:'edit',query:{data:JSON.stringify(row)}})
+        
+        
+### 垂直撑满页面
+
+
+    <div id="main">
+        <div id="nav">nav</div>
+        <div id="content">content</div>
+    </div>
+
+
+    html, body {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #main {
+    height: 100%;
+    }
+    #nav {
+    width: 100%;
+    height: 60px;
+    }
+
+    /*利用脱离文档流的方式（绝对定位）*/
+    #content {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    }
+
+
 
