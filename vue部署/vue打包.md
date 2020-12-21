@@ -37,7 +37,7 @@
             // Paths
             assetsRoot: path.resolve(__dirname, '../dist'),
             assetsSubDirectory: 'static',
-            assetsPublicPath: './',
+            assetsPublicPath: './', // 如果使用路由嵌套 这里不用指定路径 
             
 2. 然而打包发布后发现放在assets文件夹中的图片资源又报404，观察那个路径，发现多了一层statics/css/img的路径，我们要找到build文件中的utils.js，在如下所示地方新增一条publicPath为'../../'；         
          
@@ -112,3 +112,19 @@
 
         
         
+        
+        
+### 上线取消控制台输出
+
+    new UglifyJsPlugin({
+        uglifyOptions: {
+            compress: {
+                warnings: false,
+                drop_debugger: true,//console
+                drop_console: true,
+                pure_funcs: ['console.log']//移除console
+            }
+        },
+        sourceMap: config.build.productionSourceMap,
+        parallel: true
+    }),
