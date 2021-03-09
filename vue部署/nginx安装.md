@@ -73,3 +73,49 @@
         
         
         浏览器输入ip进入欢迎页面则正确
+        
+        
+### 干巴爹
+        
+        yum install gcc-c++
+        yum install -y pcre pcre-devel zlib zlib-devel openssl openssl-devel
+        yum install wget
+        wget -c https://nginx.org/download/nginx-1.18.0.tar.gz
+        tar -zxvf nginx-1.18.0.tar.gz 
+        cd nginx-1.18.0
+        ./configure
+        make
+        make install PREFIX=/usr/local/nginx
+        whereis nginx
+        cd ../usr/local/nginx/sbin/ #进入bin目录
+        ./nginx #启动
+        ./nginx -s stop #此方式相当于先查出nginx进程id再使用kill命令强制杀掉进程
+        ./nginx -s quit #此方式停止步骤是待nginx进程处理任务完毕进行停止
+        ./nginx -s reload #刷新
+    
+    
+    
+### 查看端口使用情况 （普通用户操作，加上sudo，如果是以root用户操作，不用加sudo即可查看）
+
+方式1：（亲测可行）
+
+        netstat -anp |grep 80
+        
+方式2：
+
+        lsof -i:80
+        
+方式3：
+
+        netstat -tunlp |grep :80
+        
+方式4：
+
+        netstat -an |grep :80
+        
+方式5：
+
+        ps -ef |grep 80
+
+
+监控状态为LISTEN表示已经被占用，最后一列显示被什么服务占用

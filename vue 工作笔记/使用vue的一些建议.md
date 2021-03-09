@@ -15,11 +15,11 @@ jQuery是一个工具库，但框架不仅仅是一个库，更像是一个仓�
 
 3. 数组的过滤
 
-let arr1 = array.filter((item)=>{
- return  item.id===prop  // 为真则返回  得到一个新数组
-})
-splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。 该方法会改变原始数组。
-array.splice(startIndex,num,newArray)
+        let arr1 = array.filter((item)=>{
+         return  item.id===prop  // 为真则返回  得到一个新数组
+        })
+        splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。 该方法会改变原始数组。
+        array.splice(startIndex,num,newArray)
 
 
 4. 路由跳转传值： 建议使用 query 传参  如果是对象用 JSON.stringify 处理一下  变成字符串  这样刷新不会变成[object,object]的形式
